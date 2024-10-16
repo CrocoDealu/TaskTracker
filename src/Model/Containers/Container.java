@@ -3,7 +3,7 @@ package Model.Containers;
 import java.util.Iterator;
 
 public interface Container<T> {
-    T remove(int id);
+    T remove(int id) throws Exception;
     void add(T o);
     int size();
     boolean isEmpty();

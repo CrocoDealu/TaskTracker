@@ -1,5 +1,6 @@
 package Model.Containers;
 
+import Exceptions.IdNotFoundException;
 import Model.Tasks.Task;
 
 import java.util.HashMap;
@@ -16,6 +17,9 @@ public class TaskMapContainer extends AbstractMapContainer<Task>{
 
     @Override
     public Task remove(int tid) {
+        Task t = elems.remove(tid);
+        if (t == null)
+            throw new IdNotFoundException("Id ul nu a fost gasit");
         return elems.remove(tid);
     }
 
@@ -32,12 +36,26 @@ public class TaskMapContainer extends AbstractMapContainer<Task>{
     private int getLastId() {
         return lastId;    }
 
-    public void modify(int tid, Task newT) {
-        elems.replace(tid, newT);
-    }
-
     public void setTasks(HashMap<Integer, Task> tasks) {
         elems = tasks;
+    }
+
+    public void modify(int tid, Task newT) {
+
+        Task t = elems.get(tid);
+        if (t != null) {
+            elems.replace(tid, newT);
+            return;
+        }
+        throw new IdNotFoundException("Id ul nu a fost gasit");
+    }
+
+    public Task get(int tid) {
+        Task t = elems.get(tid);
+        if (t != null) {
+            return t;
+        }
+        throw new IdNotFoundException("Id ul nu a fost gasit");
     }
 
     public HashMap<Integer, Task> getAll() {

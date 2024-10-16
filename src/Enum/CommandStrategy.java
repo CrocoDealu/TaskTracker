@@ -2,7 +2,7 @@ package Enum;
 
 public enum CommandStrategy {
     ADD,
-    MODIFY,
+    UPDATE,
     DELETE,
     MARK_DONE,
     MARK_IN_PROGRESS,

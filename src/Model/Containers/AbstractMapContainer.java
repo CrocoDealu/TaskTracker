@@ -20,9 +20,7 @@ public abstract class AbstractMapContainer<T> implements Container<T>{
         return elems;
     }
 
-    public void listAll() {
-
-    }
+    public void listAll() {}
     @Override
     public boolean isEmpty() {
         return elems.isEmpty();
