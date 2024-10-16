@@ -1,17 +1,16 @@
 package Model.Commands;
 
-import Model.Containers.TaskMapContainer;
 import Enum.CommandStrategy;
+import Containers.TaskMapContainer;
 import Model.Tasks.Task;
 import Utils.ComandParser;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class AddCommand extends AbstractCommand{
 
     private final String[] stringTask;
-    public AddCommand(String args) throws IOException {
+    public AddCommand(String args) {
         super(args);
         CommandStrategy commandStrategy = CommandStrategy.ADD;
         stringTask = ComandParser.getInstance().parse(args, commandStrategy);

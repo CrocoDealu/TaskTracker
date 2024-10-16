@@ -1,10 +1,9 @@
-package Model.Containers;
+package Containers;
 
 import Exceptions.IdNotFoundException;
 import Model.Tasks.Task;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class TaskMapContainer extends AbstractMapContainer<Task>{
 
@@ -56,9 +55,5 @@ public class TaskMapContainer extends AbstractMapContainer<Task>{
             return t;
         }
         throw new IdNotFoundException("Id ul nu a fost gasit");
-    }
-
-    public HashMap<Integer, Task> getAll() {
-        return elems;
     }
 }

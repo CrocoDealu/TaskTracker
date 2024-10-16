@@ -1,18 +1,17 @@
 package Model.Commands;
 
-import Model.Containers.TaskMapContainer;
+import Containers.TaskMapContainer;
 import Model.Tasks.Task;
 import Utils.ComandParser;
 
 import Enum.CommandStrategy;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class UpdateCommand extends AbstractCommand{
 
     private final String[] stringTask;
-    public UpdateCommand(String args) throws IOException {
+    public UpdateCommand(String args) {
         super(args);
         stringTask = ComandParser.getInstance().parse(args, CommandStrategy.UPDATE);
     }

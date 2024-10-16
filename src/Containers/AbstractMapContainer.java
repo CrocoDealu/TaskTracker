@@ -1,10 +1,8 @@
-package Model.Containers;
+package Containers;
 
-import Model.Tasks.Task;
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 
 public abstract class AbstractMapContainer<T> implements Container<T>{
 
@@ -16,8 +14,8 @@ public abstract class AbstractMapContainer<T> implements Container<T>{
     }
 
 
-    public HashMap<Integer, T> getAll() {
-        return elems;
+    public ArrayList<T> getAll() {
+        return new ArrayList<>(elems.values());
     }
 
     public void listAll() {}

@@ -1,17 +1,16 @@
 package Model.Commands;
 
-import Model.Containers.TaskMapContainer;
+import Containers.TaskMapContainer;
 import Enum.CommandStrategy;
 import Model.Tasks.Task;
 import Utils.ComandParser;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class MarkInProgressCommand extends AbstractCommand{
 
     private String[] stringTask;
-    public MarkInProgressCommand(String args) throws IOException {
+    public MarkInProgressCommand(String args) {
         super(args);
         CommandStrategy strategy = CommandStrategy.MARK_IN_PROGRESS;
         stringTask = ComandParser.getInstance().parse(args, strategy);

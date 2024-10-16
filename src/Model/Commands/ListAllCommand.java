@@ -1,20 +1,21 @@
 package Model.Commands;
 
-import Model.Containers.TaskMapContainer;
+import Containers.TaskMapContainer;
 
 import Enum.CommandStrategy;
 import Model.Tasks.Task;
 import Utils.Printer;
 
-public class ListAllCommand extends AbstractListCommand {
+import java.util.ArrayList;
 
-    public ListAllCommand(CommandStrategy c) {
-        super(c);
+public class ListAllCommand extends AbstractListCommand {
+    public ListAllCommand(CommandStrategy c, Printer<Task> printer) {
+        super(c, printer);
     }
 
     @Override
     public void execute(TaskMapContainer o) {
-        Printer<Task> printer = new Printer<>();
-        printer.printAll(o);
+        ArrayList<Task> l = o.getAll();
+        printer.printAll(l);
     }
 }

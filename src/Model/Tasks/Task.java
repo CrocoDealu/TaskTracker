@@ -18,6 +18,7 @@ public class Task {
         this.description = description;
         this.status = status;
         createdAt = LocalDateTime.now();
+        updatedAt = LocalDateTime.now();
     }
 
     public Task(int id, String description, String status, LocalDateTime createdAt, LocalDateTime updatedAt) {
@@ -83,5 +84,13 @@ public class Task {
                 ", createdAt = " + createdAt.format(formatter) +
                 ", updatedAt = " + updatedAt.format(formatter) +
                 '}';
+    }
+
+    public String toJSON() {
+        return "{\n" +
+                "  \"id\": " + id  +
+                "  \"description\": \"" + description +
+                "  \"status\": \"" + status +
+                "}";
     }
 }

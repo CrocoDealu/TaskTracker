@@ -1,19 +1,15 @@
 package Model.Commands;
 
-import Model.Containers.TaskMapContainer;
-import Model.Tasks.Task;
+import Containers.TaskMapContainer;
 import Utils.ComandParser;
 
 import Enum.CommandStrategy;
-
-import java.io.IOException;
-
 
 
 public class DeleteCommand extends AbstractCommand{
 
     private final String[] stringTask;
-    public DeleteCommand(String args) throws IOException {
+    public DeleteCommand(String args){
         super(args);
         CommandStrategy commandStrategy = CommandStrategy.DELETE;
         stringTask = ComandParser.getInstance().parse(args, commandStrategy);
